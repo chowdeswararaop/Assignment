@@ -7,10 +7,40 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" />
-    <button>Submit</button>
-    <button>
-      <a href="https://github.com/chowdeswararaop/Assignment.git"></a>Git
-    </button>
+    <div style="text-align: center; margin-top: 50px">
+      <input type="text" value="" />
+      <button id="submit">Submit</button>
+      <button>
+        <a
+          style="text-decoration: none"
+          target="blank"
+          href="https://github.com/chowdeswararaop/Assignment.git"
+          >Git</a
+        >
+      </button>
+      <div style="margin-top: 30px; font-size: 20px" id="result"></div>
+    </div>
+    <script>
+      document.querySelector('#submit').addEventListener('click', () => {
+        let valueArray = document.querySelector('input').value.split('');
+        document.querySelector('input').value = '';
+        let newArray = [];
+        valueArray.forEach((data) => {
+          if (
+            data === 'a' ||
+            data === 'e' ||
+            data === 'i' ||
+            data === 'o' ||
+            data === 'u'
+          ) {
+            newArray.push(data);
+          }
+        });
+        let result = newArray.join(' ,');
+        document.querySelector(
+          '#result'
+        ).innerText = ` The   Vowels in given input are ${newArray.length} (${result})`;
+      });
+    </script>
   </body>
 </html>
